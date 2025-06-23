@@ -6,8 +6,8 @@ class Pattern
 {
 	public:
 		Pattern() = default;
-		explicit Pattern(std::uintptr_t _Ptr) : m_Handle(reinterpret_cast<void*>(_Ptr)), m_Name(nullptr), m_Pattern(nullptr) {}
-		explicit Pattern(const char* _Name, const char* _Pattern) : m_Handle(nullptr), m_Name(_Name), m_Pattern(_Pattern) {}
+		explicit Pattern(std::uintptr_t _Ptr) : m_Handle(reinterpret_cast<void*>(_Ptr)), m_Pattern(nullptr) {}
+		explicit Pattern(const char* _Pattern) : m_Handle(nullptr), m_Pattern(_Pattern) {}
 
 		void Scan(std::function<void(const Pattern&)> _Callback)
 		{
@@ -95,7 +95,6 @@ class Pattern
 		}
 
 	private:
-		const char* m_Name;
 		const char* m_Pattern;
 		void* m_Handle;
 
